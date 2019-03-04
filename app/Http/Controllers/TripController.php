@@ -27,6 +27,7 @@ class TripController extends Controller
     public function create()
     {
         //
+        return view('trips.create');
     }
 
     /**
@@ -38,6 +39,8 @@ class TripController extends Controller
     public function store(Request $request)
     {
         //
+        $trips = $request->user()->trips()->create($request->all());
+        return redirect('/trips');
     }
 
     /**
