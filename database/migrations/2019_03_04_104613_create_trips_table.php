@@ -15,6 +15,7 @@ class CreateTripsTable extends Migration
     {
         Schema::create('trips', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('theme');
             $table->string('title');
             $table->text('description');
             $table->string('favorite_place');
