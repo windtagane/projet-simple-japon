@@ -26,12 +26,11 @@ class TripStore extends FormRequest
          return [
             'theme' => 'required|max:255|string',
             'title' => 'required||max:255|string',
-            'description' => 'required|string',
+            'description' => 'required',
             'favorite_place' => 'string',
             'travel_time' => 'string',
             'average_price' => 'integer',
             'transportation' => 'string',
-            'published' => 'boolean'
         ];
     }
 }

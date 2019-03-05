@@ -77,24 +77,24 @@
                         </div>
 
 
-                            <!-- <div class="form-group row">
-                                <label for="travel_time" class="col-md-4 col-form-label text-md-right">Durée</label>
+                        <div class="form-group row">
+                            <label for="travel_time" class="col-md-4 col-form-label text-md-right">Durée</label>
 
-                                <div class="col-md-6">
-                                    <input id="travel_time" type="time" class="form-control{{ $errors->has('travel_time') ? ' is-invalid' : '' }}" name="travel_time" value="{{ old('travel_time') }}" autofocus>
+                            <div class="col-md-6">
+                                <input id="travel_time" type="text" class="form-control{{ $errors->has('travel_time') ? ' is-invalid' : '' }}" name="travel_time" value="{{ old('travel_time') }}" autofocus>
 
-                                    @if ($errors->has('title'))
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('title') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
+                                @if ($errors->has('travel_time'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('travel_time') }}</strong>
+                                </span>
+                                @endif
                             </div>
-                        -->
+                        </div>
+                        
 
 
                         <div class="form-group row">
-                            <label for="average_price" class="col-md-4 col-form-label text-md-right">Prix moyen</label>
+                            <label for="average_price" class="col-md-4 col-form-label text-md-right">Prix moyen (en €)</label>
 
                             <div class="col-md-6">
                                 <input id="average_price" type="text" class="form-control{{ $errors->has('average_price') ? ' is-invalid' : '' }}" name="average_price" value="{{ old('average_price') }}" autofocus>
@@ -121,19 +121,6 @@
                                 @endif
                             </div>
                         </div>
-
-
-                           <!--  <div class="form-group row">
-                                <div class="col-md-6 offset-md-4">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="published" id="published" {{ old('published') ? 'checked' : '' }} value="false">
-
-                                        <label class="form-check-label" for="published">
-                                            {{ __('Publié ?') }}
-                                        </label>
-                                    </div>
-                                </div>
-                            </div> -->
 
 
                             <div class="form-group row mb-0">

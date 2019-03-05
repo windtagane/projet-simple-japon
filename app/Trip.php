@@ -12,7 +12,7 @@ class Trip extends Model
 		'title',
 		'description',
 		'favorite_place',
-		// 'travel_time',
+		'travel_time',
 		'average_price',
 		'transportation',
 	];

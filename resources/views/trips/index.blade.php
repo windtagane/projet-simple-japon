@@ -24,6 +24,7 @@
 				<th scope="col">Durée</th>
 				<th scope="col">Prix Moyen</th>
 				<th scope="col">Moyen de transport</th>
+				<th scope="col">Date de publication</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -36,8 +37,9 @@
 				<td>{{ $trip -> title }}</td>
 				<td>{{ $trip -> description }}</td>
 				<td>{{ $trip -> travel_time }}</td>
-				<td>{{ $trip -> average_price }}</td>
+				<td>{{ $trip -> average_price }}€</td>
 				<td>{{ $trip -> transportation }}</td>
+				<td>{{ $trip -> created_at }}</td>
 
 			</tr>
 
