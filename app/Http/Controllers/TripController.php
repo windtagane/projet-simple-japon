@@ -53,7 +53,8 @@ class TripController extends Controller
      */
     public function show($id)
     {
-        //
+         $trip = Trip::find($id);
+        return view('trips.show', compact('trip'));
     }
 
     /**
@@ -64,7 +65,10 @@ class TripController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $trip = Trip::find($id);
+        return view('trips.edit', compact('trip'));
+
     }
 
     /**
@@ -76,8 +80,29 @@ class TripController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+     $request->validate([
+        'theme' => 'required|max:255|string',
+        'title' => 'required||max:255|string',
+        'description' => 'required',
+        'favorite_place' => 'string',
+        'travel_time' => 'string',
+        'average_price' => 'integer',
+        'transportation' => 'string',
+    ]);
+
+     $trip = Trip::find($id);
+     $trip->theme = $request->get('theme');
+     $trip->title = $request->get('title');
+     $trip->description = $request->get('description');
+     $trip->favorite_place = $request->get('favorite_place');
+     $trip->travel_time = $request->get('travel_time');
+     $trip->average_price = $request->get('average_price');
+     $trip->transportation = $request->get('transportation');
+
+     $trip->save();
+
+     return redirect('/trips')->with('success', 'Votre parcours a bien été mis à jour');
+ }
 
     /**
      * Remove the specified resource from storage.
@@ -87,6 +112,9 @@ class TripController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $trip = Trip::find($id);
+        $trip->delete();
+
+        return redirect('/trips')->with('success', 'Votre parcours a bien été supprimer');
     }
 }
