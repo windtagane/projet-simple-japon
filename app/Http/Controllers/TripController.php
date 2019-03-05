@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Trip;
+use App\Http\Requests\TripStore;
+use Illuminate\Http\Request;
 
 class TripController extends Controller
 {
@@ -17,6 +18,7 @@ class TripController extends Controller
         return view('trips.index', [
             'trips' => Trip::all()
         ]);
+        
     }
 
     /**
@@ -24,9 +26,10 @@ class TripController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $Request)
     {
         //
+        return view('trips.create');
     }
 
     /**
@@ -35,9 +38,11 @@ class TripController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TripStore $request)
     {
-        //
+        $request->user()->trips()->create($request->all());
+        session()->flash('status', 'Parcours créé avec succès');
+        return redirect('/trips');
     }
 
     /**

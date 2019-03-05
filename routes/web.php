@@ -18,4 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/trips', 'TripController@index')->middleware('auth');
+// Route::get('/trips', 'TripController@index')->middleware('auth');
+
+Route::resource('trips', 'TripController')->middleware('auth');
