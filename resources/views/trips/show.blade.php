@@ -67,15 +67,14 @@
                     <div class="form-group row col-8 justify-content-center">
                         <p> {{ $trip -> average_price }}€</p>
                     </div>
-
+                    
                     <div class="form-group row">
                         <label for="transportation" class="col-md-4 col-form-label text-md-right font-weight-bold">Moyen de transport</label>
-                        <p> {{ $trip -> transportation }}</p>
-                        
-                    </div>
-                    <div class="form-group row col-2 justify-content-center">
                     </div>
 
+                        <div class="form-group row col-8 justify-content-center">
+                            <p> {{ $trip -> transportation }}</p>
+                        </div>
 
 
                 </div>
