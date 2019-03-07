@@ -2,15 +2,16 @@
 
     <style>
         /*Here is custom design*/
-        body {
 
-            background-image: url("img/japan2.jpg") no-repeat, cover;
-
+        .header {
+            background-color: #CD1036;
+            height: 47px;
+            padding: 11px;
         }
-
 
         .card-body {
             background-color: #E9E9E9;
+            color: #000;
         }
 
     </style>
@@ -20,7 +21,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="header">{{ __('Login') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
