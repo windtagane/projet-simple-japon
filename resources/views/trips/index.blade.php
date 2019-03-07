@@ -20,13 +20,29 @@
 	margin-right: 0.2rem;
 }
 
+.btn {
+	background-color: #CD1036
+}
+
+.btn:hover {
+	background-color: #B30E2F;
+}
+
+a.btn {
+	color: #fff;
+}
+
+a.btn:hover {
+	color: #fff;
+}
+
 </style>
 
 @section('content')
 
 <div class="w-75 mx-auto pt-4">
 
-	<a class="btn btn-danger mb-4" href="/trips/create" role="button">Créer mon parcours</a>
+	<a class="btn  mb-4" href="/trips/create" role="button">Créer mon parcours</a>
 
 	<div class="table-responsive-lg">
 		<table class="table">
