@@ -21,7 +21,7 @@
 }
 
 .btn {
-	background-color: #CD1036
+	background-color: #CD1036;
 }
 
 .btn:hover {
@@ -42,7 +42,7 @@ a.btn:hover {
 
 <div class="w-75 mx-auto pt-4">
 
-	<a class="btn  mb-4" href="/trips/create" role="button">Créer mon parcours</a>
+	<a class="btn mb-4" href="/trips/create" role="button">Créer mon parcours</a>
 
 	<div class="table-responsive-lg">
 		<table class="table">
