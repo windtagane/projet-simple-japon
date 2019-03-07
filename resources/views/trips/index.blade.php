@@ -24,12 +24,11 @@
 
 @section('content')
 
-<div class="w-75 mx-auto">
-	
+<div class="w-75 mx-auto pt-4">
 
 	<a class="btn btn-danger mb-4" href="/trips/create" role="button">Créer mon parcours</a>
 
-	<div class="table-responsive">
+	<div class="table-responsive-lg">
 		<table class="table">
 			<thead class="thead text-center">
 				<tr>
