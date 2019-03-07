@@ -14,6 +14,15 @@
             color: #000;
         }
 
+        .btn {
+            background-color: #CD1036;
+            color: #fff;
+        }
+
+        .btn:hover {
+            background-color: #B30E2F;
+        }
+
     </style>
 
 @section('content')
@@ -69,7 +78,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-danger">
+                                <button type="submit" class="btn">
                                     {{ __('Login') }}
                                 </button>
 
