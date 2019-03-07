@@ -22,6 +22,7 @@
     html, body {
         background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../../img/bg_honnigo.jpeg');
         background-size: cover;
+        background-repeat: no-repeat;
         color: #fff;
         font-family: 'Nunito', sans-serif;
         font-weight: 200;
@@ -37,7 +38,7 @@
         color: #fff;
     }
 
-    
+
     </style>
 
 </head>
