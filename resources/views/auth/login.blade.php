@@ -1,5 +1,20 @@
 @extends('layouts.app')
 
+    <style>
+        /*Here is custom design*/
+        body {
+
+            background-image: url("img/japan2.jpg") no-repeat, cover;
+
+        }
+
+
+        .card-body {
+            background-color: #E9E9E9;
+        }
+
+    </style>
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -53,7 +68,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-danger">
                                     {{ __('Login') }}
                                 </button>
 
