@@ -34,7 +34,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="header">Création article</div>
+                <div class="header">Création parcours</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -46,7 +46,7 @@
                     <form method="POST" action="/trips">
                         {{ csrf_field() }}
                         <div class="form-group row">
-                            <label for="theme" class="col-md-4 col-form-label text-md-right">Thématique*</label>
+                            <label for="theme" class="col-md-4 col-form-label text-md-right">Thématique</label>
 
                             <div class="col-md-6">
                                 <input id="theme" type="text" class="form-control{{ $errors->has('theme') ? ' is-invalid' : '' }}" name="theme" value="{{ old('theme') }}" autofocus required>
@@ -61,7 +61,7 @@
 
 
                         <div class="form-group row">
-                            <label for="title" class="col-md-4 col-form-label text-md-right">Titre*</label>
+                            <label for="title" class="col-md-4 col-form-label text-md-right">Titre</label>
 
                             <div class="col-md-6">
                                 <input id="title" type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" value="{{ old('title') }}" autofocus>
@@ -76,7 +76,7 @@
 
 
                         <div class="form-group row">
-                            <label for="description" class="col-md-4 col-form-label text-md-right">Description*</label>
+                            <label for="description" class="col-md-4 col-form-label text-md-right">Description</label>
 
                             <div class="col-md-6">
                                 <textarea style="width: 100%" name="description" id="content" required>{{ old('description') }}</textarea>
@@ -153,13 +153,9 @@
 
                             <div class="form-group row mb-5">
                                 <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn">
-                                        {{ __('Créer') }}
-                                    </button>
+                                    <button type="submit" class="btn">{{ __('Créer') }}</button>
+                                    <a href="{{ url('/home') }}" class="btn btn-danger">Annuler</a>
                                 </div>
-                            </div>
-                            <div class="text-center mb-0">
-                                <p>* Les champs sont obligatoires</p> 
                             </div>
                         </form>
                     </div>

@@ -40,9 +40,13 @@ class TripController extends Controller
      */
     public function store(TripStore $request)
     {
+        
         $request->user()->trips()->create($request->all());
         session()->flash('status', 'Parcours créé avec succès');
         return redirect('/trips');
+
+
+
     }
 
     /**
@@ -53,9 +57,9 @@ class TripController extends Controller
      */
     public function show($id)
     {
-         $trip = Trip::find($id);
-        return view('trips.show', compact('trip'));
-    }
+       $trip = Trip::find($id);
+       return view('trips.show', compact('trip'));
+   }
 
     /**
      * Show the form for editing the specified resource.
@@ -80,29 +84,29 @@ class TripController extends Controller
      */
     public function update(Request $request, $id)
     {
-     $request->validate([
+       $request->validate([
         'theme' => 'required|max:255|string',
         'title' => 'required||max:255|string',
         'description' => 'required',
-        'favorite_place' => 'string',
-        'travel_time' => 'string',
-        'average_price' => 'integer',
-        'transportation' => 'string',
+        'favorite_place' => 'nullable|string',
+        'travel_time' => 'nullable|string',
+        'average_price' => 'nullable|integer',
+        'transportation' => 'nullable|string',
     ]);
 
-     $trip = Trip::find($id);
-     $trip->theme = $request->get('theme');
-     $trip->title = $request->get('title');
-     $trip->description = $request->get('description');
-     $trip->favorite_place = $request->get('favorite_place');
-     $trip->travel_time = $request->get('travel_time');
-     $trip->average_price = $request->get('average_price');
-     $trip->transportation = $request->get('transportation');
+       $trip = Trip::find($id);
+       $trip->theme = $request->get('theme');
+       $trip->title = $request->get('title');
+       $trip->description = $request->get('description');
+       $trip->favorite_place = $request->get('favorite_place');
+       $trip->travel_time = $request->get('travel_time');
+       $trip->average_price = $request->get('average_price');
+       $trip->transportation = $request->get('transportation');
 
-     $trip->save();
+       $trip->save();
 
-     return redirect('/trips')->with('success', 'Votre parcours a bien été mis à jour');
- }
+       return redirect('/trips')->with('success', 'Votre parcours a bien été mis à jour');
+   }
 
     /**
      * Remove the specified resource from storage.

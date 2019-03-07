@@ -25,6 +25,22 @@ label {
     border-bottom: 1px solid;
 }
 
+.btn {
+    background-color: #CD1036;
+}
+
+.btn:hover {
+    background-color: #B30E2F;
+}
+
+a.btn {
+    color: #fff;
+}
+
+a.btn:hover {
+    color: #fff;
+}
+
 </style>
 
 @section('content')
@@ -33,7 +49,8 @@ label {
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <a href="{{ url('/home') }}" class="btn a-btn mb-4">Retour</a>
+            <div class="card mb-3">
                 <div class="header font-weight-bold">{{ $trip -> title }}</div>
 
                 <div class="card-body w-75 mx-auto">
@@ -70,7 +87,7 @@ label {
                     </div>
 
                     <div class="form-group row title-field">
-                        <label for="favorite_place" class="col-form-label text-md-right font-weight-bold">Lieu favoris</label>
+                        <label for="favorite_place" class="col-form-label text-md-right font-weight-bold">Lieu favori</label>
 
                     </div>
                     <div class="form-group row justify-content-center">
@@ -103,7 +120,9 @@ label {
 
 
                 </div>
+                
             </div>
+
         </div>
     </div>
 </div>

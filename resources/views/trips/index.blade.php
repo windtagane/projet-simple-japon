@@ -66,19 +66,19 @@ a.btn:hover {
 					<td>{{ $trip->user->name }}</td>
 					<td>{{ $trip -> created_at }}</td>
 					<td>
-						<div class="row">
+						<div class="row justify-content-center">
 							
-							<a href="{{ route('trips.show',$trip->id) }}" class="btn btn-primary a-button">View</a>
+							<a href="{{ route('trips.show',$trip->id) }}" class="btn btn-primary a-button">Consulter</a>
 
 							@can('update', $trip)
-							<a href="{{ route('trips.edit',$trip->id) }}" class="btn btn-primary a-button">Edit</a>
+							<a href="{{ route('trips.edit',$trip->id) }}" class="btn btn-primary a-button">Modifier</a>
 							@endcan
 
 							@can('delete', $trip)
 							<form action="{{ route('trips.destroy', $trip->id) }}" method="POST">
 								@csrf
 								@method('DELETE')
-								<button class="btn btn-danger" type="submit">Delete</button>
+								<button class="btn btn-danger" type="submit">Supprimer</button>
 							</form>
 							@endcan
 

@@ -20,10 +20,10 @@ class CreateTripsTable extends Migration
             $table->string('theme');
             $table->string('title');
             $table->text('description');
-            $table->string('favorite_place');
-            $table->string('travel_time');
-            $table->integer('average_price');
-            $table->string('transportation');
+            $table->string('favorite_place')->nullable();
+            $table->string('travel_time')->nullable();
+            $table->integer('average_price')->nullable();
+            $table->string('transportation')->nullable();
             $table->timestamps();
         });
     }
