@@ -13,16 +13,17 @@ class CreateTripsTable extends Migration
      */
     public function up()
     {
+
         Schema::create('trips', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('user_id');
             $table->string('theme');
             $table->string('title');
             $table->text('description');
-            $table->string('favorite_place');
-            $table->time('travel_time');
-            $table->integer('average_price');
-            $table->string('transportation');
-            $table->boolean('published');
+            $table->string('favorite_place')->nullable();
+            $table->string('travel_time')->nullable();
+            $table->integer('average_price')->nullable();
+            $table->string('transportation')->nullable();
             $table->timestamps();
         });
     }

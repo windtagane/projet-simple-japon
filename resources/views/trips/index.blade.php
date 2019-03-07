@@ -2,59 +2,97 @@
 
 <style>
 
-.table-row {
-	cursor: pointer;
-}
-
 .table-row:hover {
 	background-color: #DEDEDE;
+}
+
+.thead {
+	background-color: #CD1036;
+}
+
+.table-row {
+	background-color: #E9E9E9;
+	color: #000;
+}
+
+.a-button {
+	height: 37px;
+	margin-right: 0.2rem;
+}
+
+.btn {
+	background-color: #CD1036;
+}
+
+.btn:hover {
+	background-color: #B30E2F;
+}
+
+a.btn {
+	color: #fff;
+}
+
+a.btn:hover {
+	color: #fff;
 }
 
 </style>
 
 @section('content')
 
-<div class="table-responsive">
-	<table class="table">
-		<thead class="thead-dark text-center">
-			<tr>
-				<th scope="col">Thématique</th>
-				<th scope="col">Titre</th>
-				<th scope="col">Description</th>
-				<th scope="col">Durée</th>
-				<th scope="col">Prix Moyen</th>
-				<th scope="col">Moyen de transport</th>
-			</tr>
-		</thead>
-		<tbody>
+<div class="w-75 mx-auto pt-4">
 
-			@foreach ($trips as $trip)
+	<a class="btn mb-4" href="/trips/create" role="button">Créer mon parcours</a>
 
-			<tr class="table-row text-center" data-href="localhost/trips/{{ $trip -> id }}">
+	<div class="table-responsive-lg">
+		<table class="table">
+			<thead class="thead text-center">
+				<tr>
+					<th scope="col">Thématique</th>
+					<th scope="col">Titre</th>
+					<th scope="col">Auteur</th>
+					<th scope="col">Date de publication</th>
+					<th scope="col">Options</th>
 
-				<td>{{ $trip -> theme }}</td>
-				<td>{{ $trip -> title }}</td>
-				<td>{{ $trip -> description }}</td>
-				<td>{{ $trip -> travel_time }}</td>
-				<td>{{ $trip -> average_price }}</td>
-				<td>{{ $trip -> transportation }}</td>
+				</tr>
+			</thead>
+			<tbody>
 
-			</tr>
+				@foreach ($trips as $trip)
 
-			@endforeach
+				<tr class="table-row text-center" data-href="/trips/{{ $trip -> id }}">
+					<td>{{ $trip -> theme }}</td>
+					<td>{{ $trip -> title }}</td>
+					<td>{{ $trip->user->name }}</td>
+					<td>{{ $trip -> created_at }}</td>
+					<td>
+						<div class="row justify-content-center">
+							
+							<a href="{{ route('trips.show',$trip->id) }}" class="btn btn-primary a-button">Consulter</a>
 
-		</tbody>
-	</table>
+							@can('update', $trip)
+							<a href="{{ route('trips.edit',$trip->id) }}" class="btn btn-primary a-button">Modifier</a>
+							@endcan
+
+							@can('delete', $trip)
+							<form action="{{ route('trips.destroy', $trip->id) }}" method="POST">
+								@csrf
+								@method('DELETE')
+								<button class="btn btn-danger" type="submit">Supprimer</button>
+							</form>
+							@endcan
+
+						</div>
+
+					</td>
+
+				</tr>
+
+				@endforeach
+
+			</tbody>
+		</table>
+	</div>
 </div>
 
 @endsection
-
-<script type="text/javascript">
-	
-	$(document).ready(function($) {
-		$(".table-row").click(function() {
-			window.document.location = $(this).data("href");
-		});
-	});
-
-</script>

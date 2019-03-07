@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Trip;
+use App\Http\Requests\TripStore;
+use Illuminate\Http\Request;
 
 class TripController extends Controller
 {
@@ -17,6 +18,7 @@ class TripController extends Controller
         return view('trips.index', [
             'trips' => Trip::all()
         ]);
+        
     }
 
     /**
@@ -24,9 +26,10 @@ class TripController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $Request)
     {
         //
+        return view('trips.create');
     }
 
     /**
@@ -35,9 +38,15 @@ class TripController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TripStore $request)
     {
-        //
+        
+        $request->user()->trips()->create($request->all());
+        session()->flash('status', 'Parcours créé avec succès');
+        return redirect('/trips');
+
+
+
     }
 
     /**
@@ -48,8 +57,9 @@ class TripController extends Controller
      */
     public function show($id)
     {
-        //
-    }
+       $trip = Trip::find($id);
+       return view('trips.show', compact('trip'));
+   }
 
     /**
      * Show the form for editing the specified resource.
@@ -59,7 +69,10 @@ class TripController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $trip = Trip::find($id);
+        return view('trips.edit', compact('trip'));
+
     }
 
     /**
@@ -71,8 +84,29 @@ class TripController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+       $request->validate([
+        'theme' => 'required|max:255|string',
+        'title' => 'required||max:255|string',
+        'description' => 'required',
+        'favorite_place' => 'nullable|string',
+        'travel_time' => 'nullable|string',
+        'average_price' => 'nullable|integer',
+        'transportation' => 'nullable|string',
+    ]);
+
+       $trip = Trip::find($id);
+       $trip->theme = $request->get('theme');
+       $trip->title = $request->get('title');
+       $trip->description = $request->get('description');
+       $trip->favorite_place = $request->get('favorite_place');
+       $trip->travel_time = $request->get('travel_time');
+       $trip->average_price = $request->get('average_price');
+       $trip->transportation = $request->get('transportation');
+
+       $trip->save();
+
+       return redirect('/trips')->with('success', 'Votre parcours a bien été mis à jour');
+   }
 
     /**
      * Remove the specified resource from storage.
@@ -82,6 +116,9 @@ class TripController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $trip = Trip::find($id);
+        $trip->delete();
+
+        return redirect('/trips')->with('success', 'Votre parcours a bien été supprimer');
     }
 }
