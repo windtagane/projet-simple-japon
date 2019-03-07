@@ -1,4 +1,32 @@
 @extends('layouts.app')
+
+<style>
+    /*Here is custom design*/
+
+.header {
+    background-color: #CD1036;
+    height: 47px;
+    padding: 11px;
+}
+
+.card-body {
+    background-color: #E9E9E9;
+    color: #000;
+
+}
+
+.btn {
+    background-color: #CD1036;
+    color: #fff;
+
+}
+
+.btn:hover {
+    background-color: #B30E2F;
+}
+
+</style>
+
 @section('content')
 
 
@@ -6,7 +34,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Création article</div>
+                <div class="header">Création article</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -63,7 +91,7 @@
 
 
                         <div class="form-group row">
-                            <label for="favorite_place" class="col-md-4 col-form-label text-md-right">Lieu favoris</label>
+                            <label for="favorite_place" class="col-md-4 col-form-label text-md-right">Lieu favori</label>
 
                             <div class="col-md-6">
                                 <input id="favorite_place" type="text" class="form-control{{ $errors->has('favorite_place') ? ' is-invalid' : '' }}" name="favorite_place" value="{{ old('favorite_place') }}" autofocus>
@@ -125,8 +153,8 @@
 
                             <div class="form-group row mb-5">
                                 <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Create') }}
+                                    <button type="submit" class="btn">
+                                        {{ __('Créer') }}
                                     </button>
                                 </div>
                             </div>
