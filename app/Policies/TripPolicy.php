@@ -11,7 +11,7 @@ class TripPolicy
     use HandlesAuthorization;
 
     /**
-     * Create a new policy instance.
+     * Create a new policy instance.sudo
      *
      * @return void
      */
