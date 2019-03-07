@@ -6,6 +6,10 @@
 	background-color: #DEDEDE;
 }
 
+.thead {
+	background-color: #CD1036;
+}
+
 </style>
 
 @section('content')
@@ -14,7 +18,7 @@
 
 <div class="table-responsive">
 	<table class="table">
-		<thead class="thead-dark text-center">
+		<thead class="thead text-center">
 			<tr>
 				<th scope="col">Thématique</th>
 				<th scope="col">Titre</th>
