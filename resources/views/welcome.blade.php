@@ -10,11 +10,10 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
     <!-- Styles -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <style>
     html, body {
-        /*background-color: #CD1036;*/
         background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../../img/bg_honnigo.jpeg');
-        /*background: center url("../../img/bg_honnigo.jpeg");*/
         background-size: cover;
         color: #fff;
         font-family: 'Nunito', sans-serif;
@@ -76,42 +75,25 @@
     }
 
     .btn {
-        color: #fff;
         background-color: #CD1036;
-        display:inline-block;
-        padding:0.35em 1.2em;
-        border:0.1em solid #FFFFFF;
-        margin:0 0.3em 0.3em 0;
-        border-radius:0.12em;
-        box-sizing: border-box;
-        text-decoration:none;
-        font-weight:300;
-        color:#FFFFFF;
-        text-align:center;
-        transition: all 0.2s;
     }
 
-    .btn a {
-        vertical-align: center;
+    .btn:hover {
+        background-color: #B30E2F;
     }
 
-    .btn:hover{
-        color:#000000;
-        background-color:#FFFFFF;
+    a.btn {
+        color: #fff;
     }
 
-    @media all and (max-width:30em){
-        .btn{
-              display:block;
-              margin:0.4em auto;
-         }
-    } 
-
-} 
-
-
+    a.btn:hover {
+        color: #fff;
+    }
+ 
 </style>
 </head>
+
+
 <body>
     <div class="flex-center position-ref full-height">
         @if (Route::has('login'))
@@ -136,16 +118,19 @@
             <p>Partager votre Japon</p>
 
             @if (Route::has('register'))
-            <div class="links">
                 @auth
-                <a class="btn" href="{{ url('/home') }}">Consulter la liste des parcours</a>
+                <a role="button" class="btn font-weight-bold" href="{{ url('/home') }}">Consulter la liste des parcours</a>
                 @else
-                <a class="btn" href="{{ route('register') }}">S'inscrire</a>
+                <a role="button" class="btn font-weight-bold" href="{{ route('register') }}">S'inscrire</a>
                 @endauth
-            </div>
             @endif
 
         </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
 </body>
 </html>

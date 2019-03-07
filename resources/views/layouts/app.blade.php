@@ -22,6 +22,8 @@
     html, body {
         background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../../img/bg_honnigo.jpeg');
         background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
         color: #fff;
         font-family: 'Nunito', sans-serif;
         font-weight: 200;
@@ -29,15 +31,22 @@
         margin: 0;
     }
 
-    .nav-link {
+    a.nav-link {
         color: #fff;
     }
 
-    .navbar-brand {
+    .nav-link:hover {
+        text-shadow: 0px 1px 1px #fff;
+    }
+
+    a.navbar-brand {
         color: #fff;
     }
 
-    
+    .navbar-brand:hover {
+        text-shadow: 0px 1px 1px #fff;
+    }
+
     </style>
 
 </head>

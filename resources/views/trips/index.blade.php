@@ -10,56 +10,89 @@
 	background-color: #CD1036;
 }
 
+.table-row {
+	background-color: #E9E9E9;
+	color: #000;
+}
+
+.a-button {
+	height: 37px;
+	margin-right: 0.2rem;
+}
+
+.btn {
+	background-color: #CD1036;
+}
+
+.btn:hover {
+	background-color: #B30E2F;
+}
+
+a.btn {
+	color: #fff;
+}
+
+a.btn:hover {
+	color: #fff;
+}
+
 </style>
 
 @section('content')
 
-<a class="btn btn-danger mb-4" href="/trips/create" role="button">Créer mon parcours</a>
+<div class="w-75 mx-auto pt-4">
 
-<div class="table-responsive">
-	<table class="table">
-		<thead class="thead text-center">
-			<tr>
-				<th scope="col">Thématique</th>
-				<th scope="col">Titre</th>
-				<th scope="col">Auteur</th>
-				<th scope="col">Date de publication</th>
-				<th scope="col">Options</th>
+	<a class="btn mb-4" href="/trips/create" role="button">Créer mon parcours</a>
 
-			</tr>
-		</thead>
-		<tbody>
+	<div class="table-responsive-lg">
+		<table class="table">
+			<thead class="thead text-center">
+				<tr>
+					<th scope="col">Thématique</th>
+					<th scope="col">Titre</th>
+					<th scope="col">Auteur</th>
+					<th scope="col">Date de publication</th>
+					<th scope="col">Options</th>
 
-			@foreach ($trips as $trip)
+				</tr>
+			</thead>
+			<tbody>
 
-			<tr class="table-row text-center" data-href="/trips/{{ $trip -> id }}">
-				<td>{{ $trip -> theme }}</td>
-				<td>{{ $trip -> title }}</td>
-				<td>{{ $trip->user->name }}</td>
-				<td>{{ $trip -> created_at }}</td>
-				<td>
-					<a href="{{ route('trips.show',$trip->id) }}" class="btn btn-primary">View</a>
+				@foreach ($trips as $trip)
 
-					@can('update', $trip)
-					<a href="{{ route('trips.edit',$trip->id) }}" class="btn btn-primary">Edit</a>
-					@endcan
-					
-					@can('delete', $trip)
-					<form action="{{ route('trips.destroy', $trip->id) }}" method="POST">
-						@csrf
-						@method('DELETE')
-						<button class="btn btn-danger" type="submit">Delete</button>
-					</form>
-					@endcan
+				<tr class="table-row text-center" data-href="/trips/{{ $trip -> id }}">
+					<td>{{ $trip -> theme }}</td>
+					<td>{{ $trip -> title }}</td>
+					<td>{{ $trip->user->name }}</td>
+					<td>{{ $trip -> created_at }}</td>
+					<td>
+						<div class="row">
+							
+							<a href="{{ route('trips.show',$trip->id) }}" class="btn btn-primary a-button">View</a>
 
-				</td>
+							@can('update', $trip)
+							<a href="{{ route('trips.edit',$trip->id) }}" class="btn btn-primary a-button">Edit</a>
+							@endcan
 
-			</tr>
+							@can('delete', $trip)
+							<form action="{{ route('trips.destroy', $trip->id) }}" method="POST">
+								@csrf
+								@method('DELETE')
+								<button class="btn btn-danger" type="submit">Delete</button>
+							</form>
+							@endcan
 
-			@endforeach
+						</div>
 
-		</tbody>
-	</table>
+					</td>
+
+				</tr>
+
+				@endforeach
+
+			</tbody>
+		</table>
+	</div>
 </div>
 
 @endsection
